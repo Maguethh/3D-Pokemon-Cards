@@ -6,12 +6,21 @@
   box-sizing: border-box;
 }
 
+.container {
+  display: flex;
+  gap: 120px;
+}
+
 body {
-  background-color: rgb(90, 90, 90);
+  background-color: rgb(117, 178, 219);
   min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.card:hover {
+  z-index: 10;
 }
 
 .card {
@@ -26,10 +35,78 @@ body {
   overflow: hidden;
   border-radius: 25px;
   transition: all 0.15s ease-out;
+  background-color: black;
 }
 
 .content-card img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+
+.glow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transition: all 0.15s ease-out;
+  border-radius: 25px;
+  mix-blend-mode: hard-light;
+  background: radial-gradient(
+    circle at 50% 0%,
+    rgb(230, 252, 245),
+    transparent
+  );
+  opacity: 0.3;
+}
+
+.card {
+  animation: cardIdle 10s infinite;
+  z-index: 80;
+}
+
+.card:hover {
+  animation-play-state: paused;
+}
+
+@keyframes cardIdle {
+  30% {
+    transform: rotate(10deg);
+  }
+
+  70% {
+    transform: rotate(-10deg);
+  }
+
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+.clouds {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  position: fixed;
+  z-index: 8;
+}
+
+.clouds img {
+  position: absolute;
+  bottom: 0;
+  max-width: 100%;
+  animation: cloud calc(8s * var(--i)) 8s linear infinite;
+  z-index: 9;
+}
+
+@keyframes cloud {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
 }
