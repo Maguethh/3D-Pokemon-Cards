@@ -110,3 +110,38 @@ body {
     transform: translateX(100%);
   }
 }
+
+.title,
+.subtitle {
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  justify-content: center;
+}
+
+.title {
+  display: flex;
+  align-items: center;
+  animation: pokeTitle 1s ease-in-out;
+}
+
+.imgtitle {
+  width: 50%;
+}
+
+.imgicon {
+  height: 80px;
+}
+
+@keyframes pokeTitle {
+  0% {
+    top: -200px;
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
